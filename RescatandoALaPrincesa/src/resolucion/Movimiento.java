@@ -49,12 +49,9 @@ public class Movimiento {
 		}
 	}
 	
-	private int encontrarMenor() {
-		int menor;
-		if(this.posPrincesa != 0)
-			menor = 0;
-		else 
-			menor = 1;
+	private Integer encontrarMenor() {
+		Integer menor;
+		menor = this.noSolucion.get(0);
 		for(int i=0; i<this.noSolucion.size(); i++) {
 			if(this.matrizAdyacencia[this.posPrincesa][this.noSolucion.get(i)] <  
 					this.matrizAdyacencia[this.posPrincesa][menor])
@@ -82,7 +79,7 @@ public class Movimiento {
 	}
 	
 	public void dijkstra(){
-		int w=0;
+		Integer w=0;
 		while(this.noSolucion.isEmpty() == false) {
 			w = this.encontrarMenor();
 			this.noSolucion.remove(w);
@@ -123,7 +120,7 @@ public class Movimiento {
 		}
 		else {
 			if(this.principeSalvaAPrincesa() == false) {
-				salida.println("NO HAY CAMINO");
+				salida.println("INTERCEPTADO");
 			}
 			else {
 				ArrayList<Integer> camino = new ArrayList<Integer>();
